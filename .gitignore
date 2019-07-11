@@ -1,0 +1,7 @@
+.next
+node_modules
+nodemon.json
+.DS_Store
+*.log
+*.env
+auth0.config.json
