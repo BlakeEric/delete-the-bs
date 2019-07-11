@@ -1,7 +1,7 @@
 {
-  "name": "blake-eric-portfilio",
+  "name": "realsimpleweb",
   "version": "0.0.1",
-  "description": "My personal website",
+  "description": "View the content of any website without ads or trackers",
   "main": "index.js",
   "private": true,
   "scripts": {
