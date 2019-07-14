@@ -10,24 +10,9 @@ jest.mock('../../server/index')
 
 describe('API Routes', () => {
 
-  // beforeEach(() => {
-  //   Article.insertMany([fields, fields, fieldsWithKnownId], function(err) {
-  //     if (err) {
-  //       return err;
-  //     }
-  //     return;
-  //   });
-  // })
-  //
-  // afterEach(() => {
-  //   Article.find().remove({}).exec()
-  // })
-  //
-  // afterAll(() => {
-  //   Article.find().remove({}).exec()
-  // });
   const articleUrl = "https://www.npr.org/2019/07/13/741432176/simona-halep-defeats-serena-williams-to-win-her-first-wimbledon-title";
-
+  const badUrl = "not a url"
+  
   describe('GET /api/scrape', () => {
     test('It should respond with JSON', () => {
       return request(app).get("/api/scrape?url=" + articleUrl)
@@ -40,9 +25,21 @@ describe('API Routes', () => {
         .set('Accept', 'application/json')
         .then(response => {
           let data = JSON.parse(response.text);
-          expect(data["text"] != undefined).toEqual(true);
-          expect(data["title"] != undefined).toEqual(true);
+          expect(data).toHaveProperty('text')
+          expect(data).toHaveProperty('title')
+          expect(data).not.toHaveProperty('error');
           expect(response.status).toEqual(200);
+        })
+    })
+
+    test('It throws an error if given a malformed url', () => {
+      return request(app).get("/api/scrape?url=" + badUrl)
+        .set('Accept', 'application/json')
+        .then(response => {
+          let data = JSON.parse(response.text);
+          expect(response.status).toEqual(500);
+          expect(data).toHaveProperty('error');
+          expect(data.error.message.includes("Invalid URI")).toEqual(true);
         })
     })
   })
