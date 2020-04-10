@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import SearchField from './SearchField'
 import Content from './Content'
 import getConfig from 'next/config'

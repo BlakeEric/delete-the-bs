@@ -17,6 +17,10 @@ module.exports = (api) => {
     next();
   });
 
+  /*
+   * NOTE: Create validation
+   */
+
   // The scraping function
   api.get('/api/scrape', function(req, res){
 
@@ -37,7 +41,3 @@ module.exports = (api) => {
       });
   })
 }
-
-// function validateUrl() {
-//
-// }

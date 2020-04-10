@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component renders a ui as expected, including child components 1`] = `
+<Layout>
+  <Header>
+    <header
+      aria-label="Credits"
+      className="siteHeader"
+      id="header"
+    >
+      <a
+        href="http://localhost:3000"
+      >
+        (-bs)
+      </a>
+      <Link
+        href="http://localhost:3000/faq"
+        prefetch={true}
+      >
+        <a
+          className="faq-link"
+          href="http://localhost:3000/faq"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          FAQ
+        </a>
+      </Link>
+    </header>
+  </Header>
+  <div
+    className="pageInner"
+  >
+    <h1>
+      Child Node
+    </h1>
+  </div>
+  <Footer>
+    <footer
+      aria-label="Credits"
+      className="siteFooter"
+      id="footer"
+      role="contentinfo"
+    >
+      <hr
+        className="global-divider"
+      />
+      <p>
+        <span>
+          © Blake Lundquist 2020
+        </span>
+        <a
+          href="https://gitlab.com/BlakeEric/portfolio"
+          rel="nofollow"
+          target="_blank"
+        >
+          View source code for this website
+        </a>
+      </p>
+    </footer>
+  </Footer>
+</Layout>
+`;

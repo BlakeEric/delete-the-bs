@@ -2,26 +2,26 @@
  * @jest-environment node
 */
 
-
 /* eslint-env jest */
+
 const request = require('supertest')
-const app = require('../../server/index')
-jest.mock('../../server/index')
+const app = require('./index')
+jest.mock('./index')
 
 describe('API Routes', () => {
 
-  const articleUrl = "https://www.npr.org/2019/07/13/741432176/simona-halep-defeats-serena-williams-to-win-her-first-wimbledon-title";
+  const goodUrl = "https://www.npr.org/2019/07/13/741432176/simona-halep-defeats-serena-williams-to-win-her-first-wimbledon-title";
   const badUrl = "not a url"
-  
+
   describe('GET /api/scrape', () => {
-    test('It should respond with JSON', () => {
-      return request(app).get("/api/scrape?url=" + articleUrl)
+    it('responds with JSON', () => {
+      return request(app).get("/api/scrape?url=" + goodUrl)
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
     })
 
-    test('It returns post content', () => {
-      return request(app).get("/api/scrape?url=" + articleUrl)
+    it('returns post content', () => {
+      return request(app).get("/api/scrape?url=" + goodUrl)
         .set('Accept', 'application/json')
         .then(response => {
           let data = JSON.parse(response.text);
@@ -32,7 +32,7 @@ describe('API Routes', () => {
         })
     })
 
-    test('It throws an error if given a malformed url', () => {
+    it('throws an error if given a malformed url', () => {
       return request(app).get("/api/scrape?url=" + badUrl)
         .set('Accept', 'application/json')
         .then(response => {

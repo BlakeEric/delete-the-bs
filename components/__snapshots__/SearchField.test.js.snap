@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Field disables the submit button if an invalid url is supplied 1`] = `
+<SearchField
+  isLoading={false}
+>
+  <div
+    id="searchWrapper"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Paste a website URL to delete bullshit"
+        type="text"
+        value="brokenurl.com"
+      />
+      <button
+        className="contactForm-submitButton"
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</SearchField>
+`;
+
+exports[`Search Field enables the submit button if a valid url is supplied 1`] = `
+<SearchField
+  isLoading={false}
+>
+  <div
+    id="searchWrapper"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Paste a website URL to delete bullshit"
+        type="text"
+        value="https://validurl.com"
+      />
+      <button
+        className="contactForm-submitButton"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</SearchField>
+`;
+
+exports[`Search Field renders a disabled submit button on mount 1`] = `
+<SearchField
+  isLoading={false}
+>
+  <div
+    id="searchWrapper"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Paste a website URL to delete bullshit"
+        type="text"
+        value=""
+      />
+      <button
+        className="contactForm-submitButton"
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</SearchField>
+`;
