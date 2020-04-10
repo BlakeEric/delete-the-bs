@@ -1,65 +1,72 @@
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
 
 export default class SearchField extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      valid: false,
-      alert: null,
-      inProgress: false,
-    }
+  state = {
+    valid: false,
+    alert: null,
+    url: '',
+    touched: false,
   }
 
   handleError(err) {
     alert("Oops, Something went wrong! Please try again");
   }
 
-  async handleSubmit(event) {
+ /*
+  * Wrapper function for submitUrl callback prop
+  */
+  handleSubmit = (event) => {
+    this.setState({
+      touched: false
+    })
     event.preventDefault()
-    const url = ReactDOM.findDOMNode(this.refs.url).value.trim();
-    this.setState({inProgress: true})
-    this.props.submitUrl(url);
+    this.props.submitUrl(this.state.url);
   }
 
-  alertDismiss() {
-    this.setState({alert: null});
+ /*
+  * Keep track of controlled form in state
+  */
+  setUrl = (urlInput) => {
+    this.setState({
+      url: urlInput,
+      touched: true
+    })
   }
 
-
-
-  validate() {
-
-    const url = ReactDOM.findDOMNode(this.refs.url).value.trim();
+ /*
+  * Validate the url field
+  */
+  isValid = () => {
     const pattern = /^(?:(?:https?|HTTPS?):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-zA-Z\u00a1-\uffff0-9]-*)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]-*)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/
-    let isValid = pattern.test(url);
-
-    if ( isValid ) {
-      this.setState({valid: true});
-    } else {
-      this.setState({valid: false});
-    }
-
+    return pattern.test(this.state.url);
   }
 
   render() {
     return (
       <div id="searchWrapper">
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit}>
           <input
-            ref="url" type="text"
-            onChange={this.validate.bind(this)}
-            placeholder="Paste a website URL"
+            type="text"
+            onChange={(event) => this.setUrl(event.target.value)}
+            placeholder="Paste a website URL to delete bullshit"
+            value={this.state.url}
           />
-          <button type="submit" className="contactForm-submitButton" disabled={!this.state.valid || this.state.inProgress}>
-            {this.props.isLoading ? 'Loading' : 'Submit'}
+          <button type="submit"
+            className="contactForm-submitButton"
+            disabled={!this.state.touched || this.props.isLoading || !this.isValid()}
+          >
+            {this.props.isLoading ? '…' : 'Submit'}
           </button>
         </form>
       </div>
     )
   }
 
+}
+
+SearchField.defaultProps = {
+  isLoading: false
 }
