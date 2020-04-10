@@ -7,7 +7,7 @@ const baseUrl = publicRuntimeConfig.baseUrl || process.env.BASE_URL;
 const Header = () => (
   <header id="header" className="siteHeader" aria-label="Credits">
     <a href={`${baseUrl}`}>(-bs)</a>
-    <Link href={`${baseUrl}/faq`}><a className="faq-link">FAQ</a></Link>
+    <Link href="/faq"><a className="faq-link">FAQ</a></Link>
   </header>
 )
 
