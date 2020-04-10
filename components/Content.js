@@ -1,7 +1,3 @@
-// This component will show the default content on page load,
-// and after a user submits the form show either the formatted content,
-// or an error (with a fun message :))
-
 const Content = (props) => (
   <main role="main" id="main">
       {props.content.image && <img src={props.content.image} />}

@@ -1,12 +1,11 @@
 /* eslint-env jest */
-import { shallow, mount, configure } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import ReactDOM from 'react-DOM'
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json'
 
 import SearchField from './SearchField'
 
-configure({ adapter: new Adapter() });
 
 describe('Search Field', () => {
 

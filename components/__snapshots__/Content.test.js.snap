@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content component renders UI WITHOUT image tag when NO src supplied in props 1`] = `
+<Content
+  content={
+    Object {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": "",
+      "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis  et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia  voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos  qui ratione voluptatem sequi nesciunt.
+Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt  ut labore et dolore magnam aliquam quaerat voluptatem.",
+      "title": "Mock Title",
+    }
+  }
+>
+  <main
+    id="main"
+    role="main"
+  >
+    <h1
+      className="title"
+    >
+      Mock Title
+    </h1>
+    <h3
+      className="subTitle"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </h3>
+    <p
+      className="pageContent"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis  et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia  voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos  qui ratione voluptatem sequi nesciunt.<br />Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt  ut labore et dolore magnam aliquam quaerat voluptatem.",
+        }
+      }
+    />
+    <button
+      className="button-light endcontent-currentUrl-resetButton"
+    >
+      ← Start Over
+    </button>
+  </main>
+</Content>
+`;
+
+exports[`Content component renders UI with image tag when src supplied in props 1`] = `
+<Content
+  content={
+    Object {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Campo_de_Blue_Bonnets.jpeg",
+      "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis  et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia  voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos  qui ratione voluptatem sequi nesciunt.
+Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt  ut labore et dolore magnam aliquam quaerat voluptatem.",
+      "title": "Mock Title",
+    }
+  }
+>
+  <main
+    id="main"
+    role="main"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Campo_de_Blue_Bonnets.jpeg"
+    />
+    <h1
+      className="title"
+    >
+      Mock Title
+    </h1>
+    <h3
+      className="subTitle"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </h3>
+    <p
+      className="pageContent"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis  et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia  voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos  qui ratione voluptatem sequi nesciunt.<br />Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt  ut labore et dolore magnam aliquam quaerat voluptatem.",
+        }
+      }
+    />
+    <button
+      className="button-light endcontent-currentUrl-resetButton"
+    >
+      ← Start Over
+    </button>
+  </main>
+</Content>
+`;

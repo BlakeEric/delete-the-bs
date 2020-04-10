@@ -1,11 +1,8 @@
 /* eslint-env jest */
 import ReactDOM from 'react-dom'
 import Layout from './Layout'
-import { shallow, mount, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
-
-configure({ adapter: new Adapter() });
 
 describe('Layout component', () => {
   it('renders without crashing', () => {
