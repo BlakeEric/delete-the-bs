@@ -3,17 +3,18 @@ const server = express();
 const next = require('next')
 const	force = require('express-force-domain')
 const compression = require('compression')
+const sslRedirect = require('heroku-ssl-redirect')
 
+// set up app-specific vars
 const dev = process.env.NODE_ENV !== 'production'
 const api = require('./api')
 const app = next({ dev })
-const sslRedirect = require('heroku-ssl-redirect')
 const handle = app.getRequestHandler()
-
 
 // Get environment vars
 const dotenv = require('dotenv').config()
 
+// The port the server will run on
 const PORT = process.env.PORT || 3000
 
 if (!dev) {

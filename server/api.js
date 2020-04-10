@@ -1,8 +1,6 @@
-const glob = require('glob');
 const bodyParser = require('body-parser');
-var fs = require('fs');
-var requestPromise = require('request-promise');
-var extractor = require('unfluff');
+const requestPromise = require('request-promise');
+const extractor = require('unfluff');
 
 module.exports = (api) => {
 
@@ -21,8 +19,8 @@ module.exports = (api) => {
 
   // The scraping function
   api.get('/api/scrape', function(req, res){
-    // if req.params.url
-    // The URL we will scrape from.
+
+    // The URL we will scrape from
     if (!req.query.url) {
       res.status(500).json({error: err});
     }
