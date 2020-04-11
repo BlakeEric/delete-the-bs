@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import SearchField from './SearchField'
 import Content from './Content'
 import getConfig from 'next/config'
-
-const { publicRuntimeConfig = {} } = getConfig() || {};
+const { publicRuntimeConfig } = getConfig()
 const baseUrl = publicRuntimeConfig.baseUrl || process.env.BASE_URL;
 
 

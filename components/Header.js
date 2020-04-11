@@ -1,7 +1,7 @@
 import getConfig from 'next/config'
 import Link from 'next/link'
-
-const { publicRuntimeConfig = {} } = getConfig() || {};
+//
+const { publicRuntimeConfig } = getConfig()
 const baseUrl = publicRuntimeConfig.baseUrl || process.env.BASE_URL;
 
 const Header = () => (
