@@ -38,18 +38,22 @@ export default class App extends Component {
 
     fetch(encodeURI(`${baseUrl}/api/scrape?url=${url}`))
     .then(res => {
-      if (!res.ok)
-        throw "Request error"
-
       return res.json()
-
     })
     .then((data) => {
-      this.setState({content: data})
+      if (data.error) {
+        if(data.error.statusCode === 404)
+          throw "Webpage not found"
+
+        throw "Request error"
+      }
+
+      return data
     })
-    .then(() => {
+    .then((data) => {
       this.setState({
-        isLoading: false,
+        content: data,
+        isLoading: false
       })
     })
     .catch((err) => {

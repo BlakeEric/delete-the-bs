@@ -12,6 +12,7 @@ describe('API Routes', () => {
 
   const goodUrl = "https://www.npr.org/2019/07/13/741432176/simona-halep-defeats-serena-williams-to-win-her-first-wimbledon-title";
   const badUrl = "not a url"
+  const notFoundUrl = "https://www.npr.org/not-a-real-url"
 
   describe('GET /api/scrape', () => {
     it('responds with JSON', () => {
@@ -40,6 +41,17 @@ describe('API Routes', () => {
           expect(response.status).toEqual(500);
           expect(data).toHaveProperty('error');
           expect(data.error.message.includes("Invalid URI")).toEqual(true);
+        })
+    })
+
+    it('throws an error if requested webpage content is not found', () => {
+      return request(app).get("/api/scrape?url=" + notFoundUrl)
+        .set('Accept', 'application/json')
+        .then(response => {
+          let data = JSON.parse(response.text);
+          expect(response.status).toEqual(500);
+          expect(data).toHaveProperty('error');
+          expect(!!data.error.message).toEqual(true);
         })
     })
   })

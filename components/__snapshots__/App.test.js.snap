@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders UI as expected 1`] = `
+<App>
+  <section
+    className="pageInner-header "
+  >
+    <div
+      className="pageInner-titleWrap"
+    >
+      <h1
+        className="title"
+      >
+        Delete the Bullshit
+      </h1>
+      <h3
+        className="subTitle"
+      >
+        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+      </h3>
+    </div>
+    <SearchField
+      isLoading={false}
+      key="abc"
+      submitUrl={[Function]}
+    >
+      <div
+        id="searchWrapper"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            onChange={[Function]}
+            placeholder="Paste a website URL to delete bullshit"
+            type="text"
+            value=""
+          />
+          <button
+            className="contactForm-submitButton"
+            disabled={true}
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </SearchField>
+  </section>
+</App>
+`;
