@@ -143,6 +143,11 @@ const AppStyles = () => (
     #searchWrapper {
       position: relative;
       overflow: auto;
+      overflow: visible;
+    }
+
+    #searchWrapper form {
+      overflow: visible;
     }
 
     #searchWrapper input {
@@ -155,6 +160,10 @@ const AppStyles = () => (
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+
+    #searchWrapper input:focus {
+      outline: 2px solid lightblue;
     }
 
     #searchWrapper button {
@@ -173,12 +182,15 @@ const AppStyles = () => (
     }
 
     @media screen and (min-width: 500px) {
+
       #searchWrapper input {
         display: inline-block;
         float: left;
         width: 80%;
         border-right: none;
+        overflow: visible;
       }
+
       #searchWrapper button {
         display: inline-block;
         float: left;
