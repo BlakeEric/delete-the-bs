@@ -29,7 +29,7 @@ const FaqPage = () => (
             was displayed. What's the deal?</strong>
           <p>Version 1 of this application scrapes and categorizes web content using a
             somewhat-buggy library. The plan is to include a more spohisticated algorithm in version 2.</p>
-          <Link href="/"><a>&larr; Delete More Bullshit</a></Link>
+          <Link href="/"><a className="button-light">&larr; Delete More Bullshit</a></Link>
         </section>
     </Layout>
     <AppStyles />
