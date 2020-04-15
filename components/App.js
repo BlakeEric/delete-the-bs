@@ -16,7 +16,10 @@ export default class App extends Component {
   */
   initialState = () => {
     return {
-      url: "",
+      url: {
+        value: "",
+        touched: false
+      },
       content: null, //object with disc, image, text, copyright
       isLoading: false,
       error: null,
@@ -27,25 +30,37 @@ export default class App extends Component {
 
   state = this.initialState();
 
+  generatePrevSearchList = () => {
+    const url = this.state.url.value;
+
+    let prevSearches = this.state.prevSearches;
+
+    if (this.state.content) {
+      prevSearches = [url, ...this.state.prevSearches.filter((item, index) =>
+        item !== url && index < 4
+      )]
+    }
+
+    return prevSearches;
+  }
+
  /*
   * Make an API request to scrape the url webpage content
   */
-  submitUrl = (url) => {
-
-    let prevSearches = [];
-
-    if (this.state.content) {
-      prevSearches = [this.state.content, ...this.state.prevSearches]
-    }
+  submitUrl = () => {
 
     this.setState({
       isLoading: true,
       error: null,
       content: null,
-      prevSearches
+      prevSearches: this.generatePrevSearchList(),
+      url: {
+        ...this.state.url,
+        touched: false
+      }
     });
 
-    fetch(encodeURI(`${baseUrl}/api/scrape?url=${url}`))
+    fetch(encodeURI(`${baseUrl}/api/scrape?url=${this.state.url.value}`))
     .then(res => {
       return res.json()
     })
@@ -74,6 +89,18 @@ export default class App extends Component {
   }
 
   /*
+   * Keep track of controlled form in state
+   */
+   setUrl = (urlInput) => {
+     this.setState({
+       url: {
+         value: urlInput,
+         touched: true
+       }
+     })
+   }
+
+  /*
    * Reset App to it's initial state
    */
   reset = () => {
@@ -92,7 +119,7 @@ export default class App extends Component {
               (without ads, trackers, or other bullshit).
             </h3>
           </div>
-          <SearchField key={this.state.remountKey} submitUrl={this.submitUrl} isLoading={this.state.isLoading} />
+          <SearchField key={this.state.remountKey} url={this.state.url} setUrl={this.setUrl} submitUrl={this.submitUrl} isLoading={this.state.isLoading} />
         </section>
 
         {this.state.content && !this.state.isLoading ?
@@ -110,6 +137,17 @@ export default class App extends Component {
             <h2>Oops, that didn't work...</h2>
             <p>Reason: {this.state.error}</p>
             <p>Make sure you submitted a valid url or try a different one</p>
+          </div>
+        : ''}
+
+        {this.state.prevSearches.length > 0 ?
+          <div className="prevSearches">
+            <h4 className="prevSearches-header">Previous Searches</h4>
+            <ul>
+              {this.state.prevSearches.map((item, index) => (
+                <li key={`prevSearch-${index}`}><a href="#">{item}</a></li>
+              ))}
+            </ul>
           </div>
         : ''}
       </>

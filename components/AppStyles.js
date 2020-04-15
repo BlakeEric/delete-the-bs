@@ -143,7 +143,6 @@ const AppStyles = () => (
     #searchWrapper {
       position: relative;
       overflow: auto;
-      overflow: visible;
     }
 
     #searchWrapper form {
@@ -229,9 +228,9 @@ const AppStyles = () => (
     }
 
     .searchResults {
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
-    
+
     .pageContent {
       font-size: 20px;
       line-height: 1.6;
@@ -308,6 +307,63 @@ const AppStyles = () => (
       margin: 2rem 0 1rem 0;
       overflow: auto;
     }
+
+    /*
+    * Previous Searches
+    */
+    .prevSearches {
+      margin-top: 3rem;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .prevSearches-header {
+      margin: 1rem 0 0 0;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      color: gray;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: 1050px) {
+      .prevSearches {
+        border: none;
+        position: absolute;
+        top: 0;
+        margin-top: 0;
+        right: 24px;
+        width: 150px;
+        top: 110px;
+      }
+      .prevSearches-header {
+        margin: 0;
+      }
+    }
+
+    @media screen and (min-width: 1150px) {
+      .prevSearches {
+        width: 200px;
+      }
+    }
+
+    .prevSearches ul {
+      list-style: none;
+      margin: 0.5rem 0;
+      padding-left: 0;
+    }
+    .prevSearches li {
+      max-width: 300px;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 16px;
+      text-overflow: ellipsis;
+    }
+    .prevSearches li > a {
+      text-decoration: none;
+    }
+    .prevSearches li > a:hover {
+      text-decoration: underline;
+    }
+
 
     /*
     * Footer
