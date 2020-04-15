@@ -19,10 +19,16 @@ export default class SearchField extends Component {
   * Wrapper function for submitUrl callback prop
   */
   handleSubmit = (event) => {
+
+    event.preventDefault()
+
     this.setState({
       touched: false
     })
-    event.preventDefault()
+
+    if (!this.isValid())
+      return
+
     this.props.submitUrl(this.state.url);
   }
 
