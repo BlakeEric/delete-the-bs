@@ -16,10 +16,12 @@ export default class App extends Component {
   */
   initialState = () => {
     return {
+      url: "",
       content: null, //object with disc, image, text, copyright
       isLoading: false,
       error: null,
       remountKey: (new Date()).getTime(),
+      prevSearches: []
     }
   }
 
@@ -30,10 +32,17 @@ export default class App extends Component {
   */
   submitUrl = (url) => {
 
+    let prevSearches = [];
+
+    if (this.state.content) {
+      prevSearches = [this.state.content, ...this.state.prevSearches]
+    }
+
     this.setState({
       isLoading: true,
       error: null,
-      content: ''
+      content: null,
+      prevSearches
     });
 
     fetch(encodeURI(`${baseUrl}/api/scrape?url=${url}`))

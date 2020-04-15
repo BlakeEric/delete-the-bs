@@ -228,6 +228,10 @@ const AppStyles = () => (
       }
     }
 
+    .searchResults {
+      margin-top: 3rem;
+    }
+    
     .pageContent {
       font-size: 20px;
       line-height: 1.6;
