@@ -111,6 +111,17 @@ describe('App component', () => {
       expect(wrapper.state().successfulSearches.length).toEqual(2)
 
     });
+
+    it('Sets state correctly when resubmitting a url', async () => {
+      const wrapper = mount(<App />)
+
+      wrapper.instance().resubmit("https://wikipedia.com")
+
+      await tick();
+
+      expect(wrapper.state().content).toEqual(mockContent)
+
+    });
   })
 
 

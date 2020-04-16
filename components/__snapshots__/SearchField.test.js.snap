@@ -55,6 +55,7 @@ exports[`Search Field disables the submit button if an invalid url is supplied 1
   </section>
   <PrevSearches
     data={Array []}
+    handleResubmit={[Function]}
   />
 </App>
 `;
@@ -114,6 +115,7 @@ exports[`Search Field enables the submit button if a valid url is supplied 1`] =
   </section>
   <PrevSearches
     data={Array []}
+    handleResubmit={[Function]}
   />
 </App>
 `;

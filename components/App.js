@@ -97,6 +97,18 @@ export default class App extends Component {
      })
    }
 
+   /*
+    * Resubmit a previous item
+    */
+    resubmit = (value) => {
+      this.setState({
+        url: {
+          value: value,
+        }
+      },
+      () => this.submitUrl()
+    )}
+
   /*
    * Reset App to it's initial state
    */
@@ -137,7 +149,7 @@ export default class App extends Component {
           </div>
         : ''}
 
-        <PrevSearches data={this.state.successfulSearches} />
+        <PrevSearches handleResubmit={this.resubmit}data={this.state.successfulSearches} />
       </>
     )
   }

@@ -9,7 +9,13 @@ const PrevSearches = (props) => {
       <h4 className="prevSearches-header">Previous Searches</h4>
       <ul>
         {props.data.map((item, index) => {
-          return index > 0 && <li key={`prevSearch-${index}`}><a href="#">{item}</a></li>
+          return index > 0 &&
+          <li key={`prevSearch-${index}`}>
+            <a href="#" onClick={(e) => {
+              e.preventDefault
+              props.handleResubmit(item)
+            }}>{item}</a>
+          </li>
         })}
       </ul>
     </div>

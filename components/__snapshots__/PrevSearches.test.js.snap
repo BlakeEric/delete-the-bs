@@ -19,6 +19,7 @@ exports[`PrevSearches component renders ui correctly when more than one item exi
     >
       <a
         href="#"
+        onClick={[Function]}
       >
         https://wikipedia.com
       </a>
@@ -28,6 +29,7 @@ exports[`PrevSearches component renders ui correctly when more than one item exi
     >
       <a
         href="#"
+        onClick={[Function]}
       >
         https://medium.com
       </a>
