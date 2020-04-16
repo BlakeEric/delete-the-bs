@@ -1,64 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search Field disables the submit button if an invalid url is supplied 1`] = `
-<SearchField
-  isLoading={false}
->
-  <div
-    id="searchWrapper"
+<App>
+  <section
+    className="pageInner-header "
   >
-    <form
-      onSubmit={[Function]}
+    <div
+      className="pageInner-titleWrap"
     >
-      <input
-        onChange={[Function]}
-        placeholder="Paste a website URL to delete bullshit"
-        type="text"
-        value="brokenurl.com"
-      />
-      <button
-        className="contactForm-submitButton"
-        disabled={true}
-        type="submit"
+      <h1
+        className="title"
       >
-        Submit
-      </button>
-    </form>
-  </div>
-</SearchField>
+        Delete the Bullshit
+      </h1>
+      <h3
+        className="subTitle"
+      >
+        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+      </h3>
+    </div>
+    <SearchField
+      isLoading={false}
+      setUrl={[Function]}
+      submitUrl={[Function]}
+      url={
+        Object {
+          "touched": true,
+          "value": "brokenurl.com",
+        }
+      }
+    >
+      <div
+        id="searchWrapper"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            onChange={[Function]}
+            placeholder="Paste a website URL to delete bullshit"
+            type="text"
+            value="brokenurl.com"
+          />
+          <button
+            className="contactForm-submitButton"
+            disabled={true}
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </SearchField>
+  </section>
+  <PrevSearches
+    data={Array []}
+  />
+</App>
 `;
 
 exports[`Search Field enables the submit button if a valid url is supplied 1`] = `
-<SearchField
-  isLoading={false}
->
-  <div
-    id="searchWrapper"
+<App>
+  <section
+    className="pageInner-header "
   >
-    <form
-      onSubmit={[Function]}
+    <div
+      className="pageInner-titleWrap"
     >
-      <input
-        onChange={[Function]}
-        placeholder="Paste a website URL to delete bullshit"
-        type="text"
-        value="https://validurl.com"
-      />
-      <button
-        className="contactForm-submitButton"
-        disabled={false}
-        type="submit"
+      <h1
+        className="title"
       >
-        Submit
-      </button>
-    </form>
-  </div>
-</SearchField>
+        Delete the Bullshit
+      </h1>
+      <h3
+        className="subTitle"
+      >
+        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+      </h3>
+    </div>
+    <SearchField
+      isLoading={false}
+      setUrl={[Function]}
+      submitUrl={[Function]}
+      url={
+        Object {
+          "touched": true,
+          "value": "https://validurl.com",
+        }
+      }
+    >
+      <div
+        id="searchWrapper"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            onChange={[Function]}
+            placeholder="Paste a website URL to delete bullshit"
+            type="text"
+            value="https://validurl.com"
+          />
+          <button
+            className="contactForm-submitButton"
+            disabled={false}
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </SearchField>
+  </section>
+  <PrevSearches
+    data={Array []}
+  />
+</App>
 `;
 
 exports[`Search Field renders a disabled submit button on mount 1`] = `
 <SearchField
+  content={null}
+  error={null}
   isLoading={false}
+  setUrl={[Function]}
+  url={
+    Object {
+      "touched": false,
+      "value": "",
+    }
+  }
 >
   <div
     id="searchWrapper"

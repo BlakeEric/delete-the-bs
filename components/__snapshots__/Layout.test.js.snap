@@ -8,11 +8,17 @@ exports[`Layout component renders a ui as expected, including child components 1
       className="siteHeader"
       id="header"
     >
-      <a
-        href="http://localhost:3000"
+      <Link
+        href="/"
       >
-        (-bs)
-      </a>
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          (-bs)
+        </a>
+      </Link>
       <Link
         href="/faq"
       >
@@ -27,13 +33,13 @@ exports[`Layout component renders a ui as expected, including child components 1
       </Link>
     </header>
   </Header>
-  <div
+  <main
     className="pageInner"
   >
     <h1>
       Child Node
     </h1>
-  </div>
+  </main>
   <Footer>
     <footer
       aria-label="Credits"

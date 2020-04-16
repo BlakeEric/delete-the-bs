@@ -21,8 +21,14 @@ exports[`App component renders UI as expected 1`] = `
     </div>
     <SearchField
       isLoading={false}
-      key="abc"
+      setUrl={[Function]}
       submitUrl={[Function]}
+      url={
+        Object {
+          "touched": false,
+          "value": "",
+        }
+      }
     >
       <div
         id="searchWrapper"
@@ -47,5 +53,8 @@ exports[`App component renders UI as expected 1`] = `
       </div>
     </SearchField>
   </section>
+  <PrevSearches
+    data={Array []}
+  />
 </App>
 `;

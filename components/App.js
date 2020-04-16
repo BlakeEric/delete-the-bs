@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchField from './SearchField'
 import Content from './Content'
+import PrevSearches from './PrevSearches'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const baseUrl = publicRuntimeConfig.baseUrl || process.env.BASE_URL;
@@ -23,25 +24,21 @@ export default class App extends Component {
       content: null, //object with disc, image, text, copyright
       isLoading: false,
       error: null,
-      remountKey: (new Date()).getTime(),
-      prevSearches: []
+      successfulSearches: []
     }
   }
 
   state = this.initialState();
 
-  generatePrevSearchList = () => {
+  generateSearchList = () => {
+
     const url = this.state.url.value;
 
-    let prevSearches = this.state.prevSearches;
+    const searches = [url, ...this.state.successfulSearches.filter((item, index) =>
+      item !== url && index < 5
+    )]
 
-    if (this.state.content) {
-      prevSearches = [url, ...this.state.prevSearches.filter((item, index) =>
-        item !== url && index < 4
-      )]
-    }
-
-    return prevSearches;
+    return searches;
   }
 
  /*
@@ -53,7 +50,6 @@ export default class App extends Component {
       isLoading: true,
       error: null,
       content: null,
-      prevSearches: this.generatePrevSearchList(),
       url: {
         ...this.state.url,
         touched: false
@@ -77,7 +73,8 @@ export default class App extends Component {
     .then((data) => {
       this.setState({
         content: data,
-        isLoading: false
+        isLoading: false,
+        successfulSearches: this.generateSearchList()
       })
     })
     .catch((err) => {
@@ -140,16 +137,7 @@ export default class App extends Component {
           </div>
         : ''}
 
-        {this.state.prevSearches.length > 0 ?
-          <div className="prevSearches">
-            <h4 className="prevSearches-header">Previous Searches</h4>
-            <ul>
-              {this.state.prevSearches.map((item, index) => (
-                <li key={`prevSearch-${index}`}><a href="#">{item}</a></li>
-              ))}
-            </ul>
-          </div>
-        : ''}
+        <PrevSearches data={this.state.successfulSearches} />
       </>
     )
   }

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrevSearches component renders nothing when data array length is 1 1`] = `""`;
+
+exports[`PrevSearches component renders nothing when data is empty 1`] = `""`;
+
+exports[`PrevSearches component renders ui correctly when more than one item exits in data prop 1`] = `
+<div
+  className="prevSearches"
+>
+  <h4
+    className="prevSearches-header"
+  >
+    Previous Searches
+  </h4>
+  <ul>
+    <li
+      key="prevSearch-1"
+    >
+      <a
+        href="#"
+      >
+        https://wikipedia.com
+      </a>
+    </li>
+    <li
+      key="prevSearch-2"
+    >
+      <a
+        href="#"
+      >
+        https://medium.com
+      </a>
+    </li>
+  </ul>
+</div>
+`;

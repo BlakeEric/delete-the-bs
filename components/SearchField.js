@@ -48,5 +48,9 @@ export default class SearchField extends Component {
 }
 
 SearchField.defaultProps = {
-  isLoading: false
+  isLoading: false,
+  url: {
+    value: "",
+    touched: ""
+  }
 }

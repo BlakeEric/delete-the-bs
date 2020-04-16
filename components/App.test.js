@@ -30,8 +30,7 @@ describe('App component', () => {
 
   it('renders UI as expected', () => {
     const wrapper = mount(<App />)
-    // mock the remount key for consistency in testing
-    wrapper.setState({remountKey: "abc"})
+
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -46,7 +45,7 @@ describe('App component', () => {
     const form = wrapper.find('form').first()
     form.simulate('submit');
 
-    expect(wrapper.state().content).toEqual('')
+    expect(wrapper.state().content).toEqual(null)
     expect(wrapper.state().isLoading).toEqual(true)
 
     // wait until all promises are resolved
@@ -56,7 +55,7 @@ describe('App component', () => {
     expect(wrapper.state().isLoading).toEqual(false)
   });
 
-  it('sets state appropriately when form is submitted', () => {
+  it('modifies ui appropriately when form is submitted', () => {
 
     const wrapper = mount(<App />)
 
@@ -87,6 +86,33 @@ describe('App component', () => {
     expect(wrapper.exists('Content')).toEqual(false)
     expect(wrapper.find('input').instance().value).toEqual("")
   });
+
+  describe("prevSearches", () => {
+    it('Adds previous search to state', async () => {
+      const wrapper = mount(<App />)
+      const input = wrapper.find('input');
+      input.instance().value = "http://wikipedia.com";
+      input.simulate('change');
+
+      const form = wrapper.find('form').first()
+      form.simulate('submit');
+
+      // wait until all promises are resolved
+      await tick();
+
+      input.instance().value = "http://google.com";
+      input.simulate('change');
+      form.simulate('submit');
+
+      await tick();
+
+      expect(wrapper.state().successfulSearches).toContain('http://wikipedia.com')
+      expect(wrapper.state().successfulSearches).toContain('http://google.com')
+      expect(wrapper.state().successfulSearches.length).toEqual(2)
+
+    });
+  })
+
 
   it('displays an error message if form submission is NOT successful', async () => {
     global.fetch = jest.fn(() => Promise.reject( "error" ))

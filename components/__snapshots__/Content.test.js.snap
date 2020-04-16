@@ -12,9 +12,8 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, a
     }
   }
 >
-  <main
-    id="main"
-    role="main"
+  <div
+    className="searchResults"
   >
     <h1
       className="title"
@@ -39,7 +38,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, a
     >
       ← Start Over
     </button>
-  </main>
+  </div>
 </Content>
 `;
 
@@ -55,9 +54,8 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, a
     }
   }
 >
-  <main
-    id="main"
-    role="main"
+  <div
+    className="searchResults"
   >
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Campo_de_Blue_Bonnets.jpeg"
@@ -85,6 +83,6 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor  sit amet, consectetur, a
     >
       ← Start Over
     </button>
-  </main>
+  </div>
 </Content>
 `;
