@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchField from './SearchField'
 import Content from './Content'
 import PrevSearches from './PrevSearches'
+import SearchContext from './SearchContext'
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const baseUrl = publicRuntimeConfig.baseUrl || process.env.BASE_URL;
@@ -24,22 +25,13 @@ export default class App extends Component {
       content: null, //object with disc, image, text, copyright
       isLoading: false,
       error: null,
-      successfulSearches: []
+      // successfulSearches: []
     }
   }
 
   state = this.initialState();
 
-  generateSearchList = () => {
-
-    const url = this.state.url.value;
-
-    const searches = [url, ...this.state.successfulSearches.filter((item, index) =>
-      item !== url && index < 5
-    )]
-
-    return searches;
-  }
+  static contextType = SearchContext;
 
  /*
   * Make an API request to scrape the url webpage content
@@ -74,8 +66,8 @@ export default class App extends Component {
       this.setState({
         content: data,
         isLoading: false,
-        successfulSearches: this.generateSearchList()
       })
+      this.context.addToSearchList(this.state.url.value)
     })
     .catch((err) => {
       this.setState({
@@ -118,6 +110,7 @@ export default class App extends Component {
 
 
   render() {
+
     return (
       <>
         <section className={`pageInner-header ${this.state.isLoading || this.state.content || this.state.error ? 'top' : ''}`}>
@@ -149,7 +142,7 @@ export default class App extends Component {
           </div>
         : ''}
 
-        <PrevSearches handleResubmit={this.resubmit}data={this.state.successfulSearches} />
+        <PrevSearches handleResubmit={this.resubmit} data={this.context.searches} />
       </>
     )
   }

@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json'
 
 import App from './App'
 import Content from './Content'
+// import SearchContext from './SearchContext'
 
 let mockContent = {
   image: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Campo_de_Blue_Bonnets.jpeg",
@@ -18,6 +19,7 @@ let mockContent = {
   sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt\
   ut labore et dolore magnam aliquam quaerat voluptatem."
 }
+
 
 global.fetch = jest.fn(() => Promise.resolve({ json: () => mockContent}))
 
@@ -87,42 +89,17 @@ describe('App component', () => {
     expect(wrapper.find('input').instance().value).toEqual("")
   });
 
-  describe("prevSearches", () => {
-    it('Adds previous search to state', async () => {
-      const wrapper = mount(<App />)
-      const input = wrapper.find('input');
-      input.instance().value = "http://wikipedia.com";
-      input.simulate('change');
 
-      const form = wrapper.find('form').first()
-      form.simulate('submit');
+  it('Sets state correctly when resubmitting a url', async () => {
+    const wrapper = mount(<App />)
 
-      // wait until all promises are resolved
-      await tick();
+    wrapper.instance().resubmit("https://wikipedia.com")
 
-      input.instance().value = "http://google.com";
-      input.simulate('change');
-      form.simulate('submit');
+    await tick();
 
-      await tick();
+    expect(wrapper.state().content).toEqual(mockContent)
 
-      expect(wrapper.state().successfulSearches).toContain('http://wikipedia.com')
-      expect(wrapper.state().successfulSearches).toContain('http://google.com')
-      expect(wrapper.state().successfulSearches.length).toEqual(2)
-
-    });
-
-    it('Sets state correctly when resubmitting a url', async () => {
-      const wrapper = mount(<App />)
-
-      wrapper.instance().resubmit("https://wikipedia.com")
-
-      await tick();
-
-      expect(wrapper.state().content).toEqual(mockContent)
-
-    });
-  })
+  });
 
 
   it('displays an error message if form submission is NOT successful', async () => {
