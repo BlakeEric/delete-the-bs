@@ -7,8 +7,8 @@
   "scripts": {
     "build": "next build",
     "test": "NODE_ENV=test jest --watch",
-    "dev": "nodemon -w server -w package.json server/index.js",
-    "start": "node server/index.js -p $PORT",
+    "dev": "nodemon -w src/server -w package.json src/server/index.js",
+    "start": "node src/server/index.js -p $PORT",
     "heroku-postbuild": "next build"
   },
   "keywords": [],

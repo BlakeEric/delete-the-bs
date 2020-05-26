@@ -5,7 +5,7 @@ exports[`PrevSearches component renders nothing when data array length is 1 1`] 
 exports[`PrevSearches component renders nothing when data is empty 1`] = `""`;
 
 exports[`PrevSearches component renders ui correctly when more than one item exits in data prop 1`] = `
-<div
+<aside
   className="prevSearches"
 >
   <h4
@@ -21,7 +21,7 @@ exports[`PrevSearches component renders ui correctly when more than one item exi
         href="#"
         onClick={[Function]}
       >
-        https://wikipedia.com
+        wikipedia.com
       </a>
     </li>
     <li
@@ -31,9 +31,9 @@ exports[`PrevSearches component renders ui correctly when more than one item exi
         href="#"
         onClick={[Function]}
       >
-        https://medium.com
+        medium.com
       </a>
     </li>
   </ul>
-</div>
+</aside>
 `;
