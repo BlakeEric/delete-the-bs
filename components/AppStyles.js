@@ -146,7 +146,7 @@ const AppStyles = () => (
     }
 
     #searchWrapper form {
-      overflow: visible;
+      overflow: auto;
     }
 
     #searchWrapper input {
@@ -162,7 +162,10 @@ const AppStyles = () => (
     }
 
     #searchWrapper input:focus {
-      outline: 2px solid lightblue;
+      outline: none;
+      -moz-box-shadow:    inset 0 0 0 1.5px lightblue;
+      -webkit-box-shadow: inset 0 0 0 1.5px lightblue;
+      box-shadow:         inset 0 0 0 1.5px lightblue;
     }
 
     #searchWrapper button {
@@ -239,8 +242,7 @@ const AppStyles = () => (
     .title {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       font-size: 54px;
-      margin-bottom: 0;
-      margin-top: 1rem;
+      margin: 0;
       line-height: 1.125;
     }
 
@@ -328,11 +330,10 @@ const AppStyles = () => (
       .prevSearches {
         border: none;
         position: absolute;
-        top: 0;
         margin-top: 0;
         right: 24px;
         width: 150px;
-        top: 110px;
+        top: 4rem;
       }
       .prevSearches-header {
         margin: 0;

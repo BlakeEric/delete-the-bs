@@ -5,7 +5,7 @@ const PrevSearches = (props) => {
   }
 
   return (
-    <div className="prevSearches">
+    <aside className="prevSearches">
       <h4 className="prevSearches-header">Previous Searches</h4>
       <ul>
         {props.data.map((item, index) => {
@@ -14,11 +14,11 @@ const PrevSearches = (props) => {
             <a href="#" onClick={(e) => {
               e.preventDefault
               props.handleResubmit(item)
-            }}>{item}</a>
+            }}>{item.replace(/(^\w+:|^)\/\//, '')}</a>
           </li>
         })}
       </ul>
-    </div>
+    </aside>
   )
 
 }
