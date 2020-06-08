@@ -115,7 +115,7 @@ export default class App extends Component {
       <>
         <section className={`pageInner-header ${this.state.isLoading || this.state.content || this.state.error ? 'top' : ''}`}>
           <div className="pageInner-titleWrap">
-            <h1 className="title">Delete the Bullshit</h1>
+            <h1 className="title">Delete the BS</h1>
             <h3 className="subTitle">
               View the content of any website distraction-free
               (without ads, trackers, or other bullshit).
@@ -130,7 +130,7 @@ export default class App extends Component {
 
         {this.state.isLoading ?
           <div className="loadingText">
-            <h2>Deleting Bullshit</h2>
+            <h2>Deleting BS</h2>
           </div>
         : ''}
 

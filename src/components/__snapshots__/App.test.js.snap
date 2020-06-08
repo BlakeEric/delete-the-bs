@@ -11,7 +11,7 @@ exports[`App component renders UI as expected 1`] = `
       <h1
         className="title"
       >
-        Delete the Bullshit
+        Delete the BS
       </h1>
       <h3
         className="subTitle"

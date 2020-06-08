@@ -11,7 +11,7 @@ exports[`Search Field disables the submit button if an invalid url is supplied 1
       <h1
         className="title"
       >
-        Delete the Bullshit
+        Delete the BS
       </h1>
       <h3
         className="subTitle"
@@ -71,7 +71,7 @@ exports[`Search Field enables the submit button if a valid url is supplied 1`] =
       <h1
         className="title"
       >
-        Delete the Bullshit
+        Delete the BS
       </h1>
       <h3
         className="subTitle"

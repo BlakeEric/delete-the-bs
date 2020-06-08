@@ -9,7 +9,7 @@ const HomePage = () => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" rel="stylesheet" />
-      <title>Delete the Bullshit</title>
+      <title>Delete the BS</title>
       <meta name="description" content="View the content of any webpage distraction free." />
       <meta name="author" content="Blake Lundquist" />
     </Head>
