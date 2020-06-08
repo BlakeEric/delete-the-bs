@@ -16,7 +16,7 @@ exports[`App component renders UI as expected 1`] = `
       <h3
         className="subTitle"
       >
-        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+        View the content of any website distraction-free.
       </h3>
     </div>
     <SearchField
@@ -38,7 +38,7 @@ exports[`App component renders UI as expected 1`] = `
         >
           <input
             onChange={[Function]}
-            placeholder="Paste a website URL to delete bullshit"
+            placeholder="Paste a website URL to delete bs"
             type="text"
             value=""
           />

@@ -16,7 +16,7 @@ exports[`Search Field disables the submit button if an invalid url is supplied 1
       <h3
         className="subTitle"
       >
-        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+        View the content of any website distraction-free.
       </h3>
     </div>
     <SearchField
@@ -38,7 +38,7 @@ exports[`Search Field disables the submit button if an invalid url is supplied 1
         >
           <input
             onChange={[Function]}
-            placeholder="Paste a website URL to delete bullshit"
+            placeholder="Paste a website URL to delete bs"
             type="text"
             value="brokenurl.com"
           />
@@ -76,7 +76,7 @@ exports[`Search Field enables the submit button if a valid url is supplied 1`] =
       <h3
         className="subTitle"
       >
-        View the content of any website distraction-free (without ads, trackers, or other bullshit).
+        View the content of any website distraction-free.
       </h3>
     </div>
     <SearchField
@@ -98,7 +98,7 @@ exports[`Search Field enables the submit button if a valid url is supplied 1`] =
         >
           <input
             onChange={[Function]}
-            placeholder="Paste a website URL to delete bullshit"
+            placeholder="Paste a website URL to delete bs"
             type="text"
             value="https://validurl.com"
           />
@@ -141,7 +141,7 @@ exports[`Search Field renders a disabled submit button on mount 1`] = `
     >
       <input
         onChange={[Function]}
-        placeholder="Paste a website URL to delete bullshit"
+        placeholder="Paste a website URL to delete bs"
         type="text"
         value=""
       />

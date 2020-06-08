@@ -117,8 +117,7 @@ export default class App extends Component {
           <div className="pageInner-titleWrap">
             <h1 className="title">Delete the BS</h1>
             <h3 className="subTitle">
-              View the content of any website distraction-free
-              (without ads, trackers, or other bullshit).
+              View the content of any website distraction-free.
             </h3>
           </div>
           <SearchField key={this.state.remountKey} url={this.state.url} setUrl={this.setUrl} submitUrl={this.submitUrl} isLoading={this.state.isLoading} />

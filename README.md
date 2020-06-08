@@ -7,4 +7,4 @@ how much of the content of modern webpages is not actually valuable for the view
 
 Built with Next.js, React, Express.
 
-__[View live app](https://delete-the-bullshit.herokuapp.com/)__
+__[View live app](https://deletethebs.herokuapp.com/)__

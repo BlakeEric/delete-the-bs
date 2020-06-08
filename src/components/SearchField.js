@@ -31,7 +31,7 @@ export default class SearchField extends Component {
           <input
             type="text"
             onChange={(event) => this.props.setUrl(event.target.value)}
-            placeholder="Paste a website URL to delete bullshit"
+            placeholder="Paste a website URL to delete bs"
             value={this.props.url.value}
           />
           <button type="submit"

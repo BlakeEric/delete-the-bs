@@ -3,7 +3,7 @@ const Footer = () => (
     <hr className="global-divider"/>
     <p>
       <span>&copy; Blake Lundquist 2020</span>
-      <a href="https://github.com/BlakeEric/delete-the-bullshit" rel="nofollow" target="_blank" >View source code for this website</a>
+      <a href="https://github.com/BlakeEric/delete-the-bs" rel="nofollow" target="_blank" >View source code for this website</a>
     </p>
   </footer>
 )
